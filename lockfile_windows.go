@@ -4,7 +4,7 @@ import (
 	"syscall"
 )
 
-//For some reason these consts don't exist in syscall.
+// For some reason these consts don't exist in syscall.
 const (
 	error_invalid_parameter = 87
 	code_still_active       = 259
@@ -18,7 +18,10 @@ func isRunning(pid int) (bool, error) {
 				return false, nil
 			}
 		}
+		return false, err
 	}
+
+	defer syscall.CloseHandle(procHnd)
 
 	var code uint32
 	err = syscall.GetExitCodeProcess(procHnd, &code)
