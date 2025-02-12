@@ -20,7 +20,7 @@ func isRunning(pid int) (bool, error) {
 		}
 		return false, err
 	}
-	// make sure to close the handle
+
 	defer syscall.CloseHandle(procHnd)
 
 	var code uint32
