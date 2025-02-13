@@ -1,3 +1,3 @@
-module github.com/nightlyone/lockfile
+module github.com/stratustech/lockfile
 
 go 1.11
